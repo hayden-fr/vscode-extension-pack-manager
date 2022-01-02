@@ -1,45 +1,87 @@
 {
   "name": "extension-manager",
-	"displayName": "Extension Manager",
-	"description": "",
-	"version": "0.0.1",
-	"engines": {
-		"vscode": "^1.63.0"
-	},
-	"categories": [
-		"Other"
-	],
-	"activationEvents": [
-        "onCommand:extension-manager.helloWorld"
-	],
-	"main": "./out/extension.js",
-	"contributes": {
-		"commands": [
-			{
-				"command": "extension-manager.helloWorld",
-				"title": "Hello World"
-			}
-		]
-	},
-	"scripts": {
-		"vscode:prepublish": "yarn run compile",
-		"compile": "tsc -p ./",
-		"watch": "tsc -watch -p ./",
-		"pretest": "yarn run compile && yarn run lint",
-		"lint": "eslint src --ext ts",
-		"test": "node ./out/test/runTest.js"
-	},
-	"devDependencies": {
-		"@types/vscode": "^1.63.0",
-		"@types/glob": "^7.1.4",
-		"@types/mocha": "^9.0.0",
-		"@types/node": "14.x",
-		"@typescript-eslint/eslint-plugin": "^5.1.0",
-		"@typescript-eslint/parser": "^5.1.0",
-		"eslint": "^8.1.0",
-		"glob": "^7.1.7",
-		"mocha": "^9.1.3",
-		"typescript": "^4.4.4",
-		"@vscode/test-electron": "^1.6.2"
-	}
+  "displayName": "Extension Manager",
+  "description": "Create Custom Extension Pack to manage the different workspaces",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.63.0"
+  },
+  "icon": "images/icon.png",
+  "publisher": "hayden",
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:extension-manager.extension.create",
+    "onCommand:extension-manager.extension.edit"
+  ],
+  "main": "./dist/extension",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension-manager.extension.create",
+        "title": "%manager.command.extension.create%"
+      },
+      {
+        "command": "extension-manager.extension.edit",
+        "title": "%manager.command.extension.edit%"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "extension-manager.extension.create"
+        },
+        {
+          "command": "extension-manager.extension.edit",
+          "when": "false"
+        }
+      ],
+      "extension/context": [
+        {
+          "command": "extension-manager.extension.edit",
+          "when": "extension =~ /^extension-manager\\./"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "build": "webpack --mode development",
+    "start": "yarn run watch",
+    "watch": "webpack --watch --mode development",
+    "vscode:prepublish": "webpack --mode production",
+    "compile": "tsc -p ./",
+    "pretest": "yarn run compile && yarn run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/friendly-errors-webpack-plugin": "^0.1.4",
+    "@types/glob": "^7.1.4",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "14.x",
+    "@types/react": "^17.0.38",
+    "@types/react-dom": "^17.0.11",
+    "@types/vscode": "^1.63.0",
+    "@typescript-eslint/eslint-plugin": "^5.1.0",
+    "@typescript-eslint/parser": "^5.1.0",
+    "@vscode/test-electron": "^1.6.2",
+    "css-loader": "^6.5.1",
+    "eslint": "^8.1.0",
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "glob": "^7.1.7",
+    "less": "^4.1.2",
+    "less-loader": "^10.2.0",
+    "mocha": "^9.1.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "style-loader": "^3.3.1",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.4.4",
+    "vsce": "^2.5.3",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1",
+    "webpackbar": "^5.0.2"
+  },
+  "dependencies": {}
 }

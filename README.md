@@ -1,70 +1,23 @@
-# extension-manager README
+# Extension Manager
 
-This is the README for your extension "extension-manager". After writing up a brief description, we recommend including the following sections.
+为了提高 vscode 编辑器的效率，一种有效的做法是除了常用扩展外，为不同的工作区启用不同的扩展。vscode 的推荐做法创建一个扩展包，这样你可以轻松的启用或停用项目相关的扩展。
 
-## Features
+使用 Extension Manager 可以快速的创建一个标准的扩展包，并按照你的喜好随时调整扩展包绑定的扩展项目，你可以创建多个扩展包以便不同的项目需求。
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+# 使用方法
 
-For example if there is an image subfolder under your extension project workspace:
+在命令面板中搜索 `Create New Custom Extension Pack` 并运行，然后为这个新的扩展包输入一个你喜欢的名字，好，创建完成！接下来你可以修改扩展图标和绑定的扩展。
 
-\!\[feature X\]\(images/feature-x.png\)
+**尽情享用!**
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+# Extension Manager
 
-## Requirements
+To improve the efficiency of the vscode editor, it is useful to enable different extensions for different workspaces in addition to the usual ones. Vscode's recommended practice is to create an extension pack so that you can easily enable or disable project-specific extensions.
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+Using Extension Manager, you can quickly create a standard Extension Pack and adjust the bundled Extension project to your liking. You can create multiple Extension packs for different project needs.
 
-## Extension Settings
+# Usage
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+Search for `Create New Custom Extension Pack` in the Command Palette and run it, then enter a name for the New Extension Pack that you like. You can then modify the extension icon and bind the extension.
 
 **Enjoy!**

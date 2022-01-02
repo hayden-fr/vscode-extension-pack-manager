@@ -1,0 +1,15 @@
+{
+  "manager.command.extension.create": "扩展: 创建自定义扩展包",
+  "manager.command.extension.edit": "编辑扩展包",
+  "manager.action.extension.create.placeholder": "为你的扩展包取一个名字",
+  "manager.webview.editor.pre-title": "扩展",
+  "manager.webview.extension.description": "🎉 定义扩展包图标，选取扩展",
+  "manager.webview.extension.status.changed": "此扩展已更改，点击\"立即更新\"后生效。",
+  "manager.webview.extension.status.ready": "扩展已就绪。",
+  "manager.webview.extension.status.uninstalled": "已卸载",
+  "manager.webview.update": "立即更新",
+  "manager.webview.uninstall": "卸载",
+  "manager.webview.uninstall.confirm": "确认卸载此扩展",
+  "manager.webview.cancel": "取消",
+  "manager.webview.tabs.extension-pack": "扩展包"
+}
