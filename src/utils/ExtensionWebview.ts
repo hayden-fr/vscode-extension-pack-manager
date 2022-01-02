@@ -163,7 +163,7 @@ export class ExtensionWebview {
     const extensionFilenames = fs
       .readdirSync(extensionRootPath)
       .filter((filename) => !filename.startsWith("extension-manager."))
-      .filter((filename) => !filename.startsWith("hayden.extension-manager-"))
+      .filter((filename) => !filename.startsWith("hayden.extension-pack-manager-"))
       .filter((filename) => filename !== ".obsolete");
     const installedExtensions = extensionFilenames.map(
       (filename) => new FakeExtension(path.join(extensionRootPath, filename))

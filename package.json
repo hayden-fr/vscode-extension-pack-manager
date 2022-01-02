@@ -1,5 +1,5 @@
 {
-  "name": "extension-manager",
+  "name": "extension-pack-manager",
   "displayName": "Extension Manager",
   "description": "Create Custom Extension Pack to manage the different workspaces",
   "version": "0.1.0",
