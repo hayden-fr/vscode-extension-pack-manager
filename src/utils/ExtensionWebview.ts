@@ -27,7 +27,7 @@ export class ExtensionWebview {
     this.webviewPanel = new Map();
   }
 
-  private localize(key: string, message: string) {
+  public localize(key: string, message: string) {
     return this._i18n.localize(key, message);
   }
 
@@ -73,7 +73,6 @@ export class ExtensionWebview {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <link rel="stylesheet" href="${extensionStyleUri}" />
     <script type="module" src="${extensionScriptUri}"></script>
     <title>Document</title>
   </head>

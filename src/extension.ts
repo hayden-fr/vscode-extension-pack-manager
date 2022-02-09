@@ -6,7 +6,6 @@ import * as fs from "fs";
 import { ExtensionWebview } from "./utils/ExtensionWebview";
 import { defaultManifest, FakeExtension } from "./utils/Extension";
 import { getExtensionsRootPath, kebabCase } from "./utils/utils";
-import { I18n } from "./utils/nls";
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -16,15 +15,13 @@ export function activate(context: vscode.ExtensionContext) {
   // ExtensionWebview.bundleContext(context);
   const extensionWebview = new ExtensionWebview(context);
 
-  const i18n = I18n.loadMessageBundle(context.extensionPath);
-
   const extensionRootPath = getExtensionsRootPath();
 
   // create new custom extension pack
   context.subscriptions.push(
     vscode.commands.registerCommand("extension-manager.extension.create", async () => {
       const customizeName = await vscode.window.showInputBox({
-        placeHolder: i18n.localize(
+        placeHolder: extensionWebview.localize(
           "manager.action.extension.create.placeholder",
           "Type a name for you extension"
         ),
