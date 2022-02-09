@@ -39,6 +39,11 @@ export class FakeExtension implements vscode.Extension<any> {
   readonly iconPath: string;
 
   /**
+   * encoding icon file to base64
+   */
+  readonly iconBase64: string;
+
+  /**
    * `true` if the extension has been activated.
    */
   readonly isActive: boolean = false;
@@ -92,6 +97,9 @@ export class FakeExtension implements vscode.Extension<any> {
     this.extensionPath = this.extensionUri.fsPath;
     this.iconUri = this.parseExtensionIcon(path.join(rootPath, packageJSON.icon || ""));
     this.iconPath = this.iconUri.toString();
+    const iconType = path.extname(this.iconUri.fsPath).replace(".", "");
+    const iconBase64Encoding = fs.readFileSync(this.iconUri.fsPath, { encoding: "base64" });
+    this.iconBase64 = `data:image/${iconType};base64,${iconBase64Encoding}`;
   }
 
   private parseExtension(rootPath: string): ExtensionManifest {

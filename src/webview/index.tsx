@@ -266,7 +266,7 @@ function ExtensionItem(props: {
       onClick={() => disabled || props.onClick?.()}
     >
       <div className="icon-container">
-        <img src={extension.iconPath} alt="" />
+        <img src={extension.iconBase64} alt="" />
       </div>
       <div className="details">
         <div className="title">{extension.packageJSON.displayName}</div>
@@ -324,7 +324,7 @@ function App() {
       <div className="container">
         <div className="header">
           <Avatar
-            src={extension.iconPath}
+            src={extension.iconBase64}
             onChange={(icon) => {
               setPackageJSON({ ...packageJSON, icon });
               const cache = vscode.getState();
