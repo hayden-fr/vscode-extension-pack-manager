@@ -1,3 +1,6 @@
+/**
+ * a package.json field defined for extension
+ */
 declare interface ExtensionManifest {
   name: string;
   version: string;
@@ -13,11 +16,17 @@ declare interface ExtensionManifest {
   [name: string]: any;
 }
 
+/**
+ * fake a Symbol Object for web message command
+ */
 declare interface CommandSymbol {
   description: string;
   uniqKey: string;
 }
 
+/**
+ * postMessage api in webview
+ */
 declare interface VsCodeAPI {
   getState(): Record<string, any>;
   postMessage(message: { command: CommandSymbol; payload?: any }, transfer?: any): void;
@@ -26,6 +35,9 @@ declare interface VsCodeAPI {
 
 declare function acquireVsCodeApi(): VsCodeAPI;
 
+/**
+ * extend File attributes
+ */
 interface File {
   path: string;
 }
