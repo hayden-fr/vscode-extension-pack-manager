@@ -193,10 +193,16 @@ function Avatar(props: {
       file.current = (event as ChangeEvent<HTMLInputElement>)?.target?.files?.[0];
       if (file.current) {
         const iconPath = `vscode-file://vscode-app/${file.current.path}`;
-        setImgUrl(iconPath);
-        props.onChange?.(file.current.path);
-        const cache = vscode.getState();
-        vscode.setState({ ...cache, extension: { ...cache.extension, iconPath } });
+        // encoding base64
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const iconBase64 = e.target?.result as string;
+          setImgUrl(iconBase64);
+          props.onChange?.(file.current!.path);
+          const cache = vscode.getState();
+          vscode.setState({ ...cache, extension: { ...cache.extension, iconPath, iconBase64 } });
+        };
+        reader.readAsDataURL(file.current);
       }
     };
     InputRef.current && InputRef.current.addEventListener("change", changeImage);
