@@ -10,6 +10,7 @@
   "manager.webview.update": "Update",
   "manager.webview.uninstall": "Uninstall",
   "manager.webview.uninstall.confirm": "Confirm uninstall this Extension",
+  "manager.webview.reject": "Reject Uninstalled",
   "manager.webview.cancel": "Cancel",
   "manager.webview.tabs.extension-pack": "Extension Pack"
 }

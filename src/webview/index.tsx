@@ -315,6 +315,18 @@ function App() {
     }
   }, []);
 
+  const hasUninstalledExtension = useMemo(() => {
+    const installedExtensionId = installedExtensions.map((item) => {
+      return item.id;
+    });
+    for (const id of packageJSON?.extensionPack || []) {
+      if (!installedExtensionId.includes(id)) {
+        return true;
+      }
+    }
+    return false;
+  }, [installedExtensions, packageJSON]);
+
   if (!extension || !packageJSON) {
     return null;
   }
@@ -374,6 +386,30 @@ function App() {
                 ) : (
                   <Button onClick={() => request("uninstall")}>
                     {localize("manager.webview.uninstall", "Uninstall")}
+                  </Button>
+                )}
+                {hasUninstalledExtension && (
+                  <Button
+                    onClick={() => {
+                      const installedExtensionId = installedExtensions.map((item) => {
+                        return item.id;
+                      });
+                      const extensionPack = packageJSON.extensionPack?.filter((id) => {
+                        return installedExtensionId.includes(id);
+                      });
+                      request("update", { ...packageJSON, extensionPack }).then((packageJSON) => {
+                        setExtension({ ...extension, packageJSON } as FakeExtension);
+                        setPackageJSON(packageJSON);
+                        const cache = vscode.getState();
+                        vscode.setState({
+                          ...cache,
+                          extension: { ...extension, packageJSON },
+                          packageJSON,
+                        });
+                      });
+                    }}
+                  >
+                    {localize("manager.webview.reject", "Reject Uninstalled")}
                   </Button>
                 )}
               </div>
