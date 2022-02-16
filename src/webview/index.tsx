@@ -266,6 +266,7 @@ function ExtensionItem(props: {
 }) {
   const { extension, picked } = props;
   const disabled = props.disabled || extension.packageJSON.categories?.includes("Language Packs");
+  const extensionPacks = extension.packageJSON.extensionPack?.length;
   return (
     <li
       className={classnames("extension-item", { picked, disabled })}
@@ -273,6 +274,7 @@ function ExtensionItem(props: {
     >
       <div className="icon-container">
         <img src={extension.iconBase64} alt="" />
+        {extensionPacks && <span className="badge">{extensionPacks}</span>}
       </div>
       <div className="details">
         <div className="title">{extension.packageJSON.displayName}</div>
