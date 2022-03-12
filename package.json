@@ -83,5 +83,10 @@
     "webpack-cli": "^4.9.1",
     "webpackbar": "^5.0.2"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hayden-fr/vscode-extension-pack-manager"
+  },
+  "license": "MIT"
 }
