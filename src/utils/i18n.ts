@@ -2,6 +2,9 @@ import * as vscode from "vscode";
 import * as path from "path";
 import * as fs from "fs";
 
+/**
+ * I18n tool
+ */
 export class I18n {
   public readonly nls: Record<string, string> = {};
 
@@ -9,8 +12,6 @@ export class I18n {
     const language = vscode.env.language;
     return new I18n({ language, rootPath });
   }
-
-  // public static
 
   private constructor(opts: { language: string; rootPath: string }) {
     const { language, rootPath } = opts;

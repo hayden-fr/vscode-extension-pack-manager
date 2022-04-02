@@ -1,0 +1,47 @@
+.vscode-input {
+  --vscode-border-width: 1;
+  --vscode-corner-radius: 0;
+  --vscode-input-height: 26;
+  --vscode-input-min-width: 100px;
+  --vscode-design-unit: 4;
+  --vscode-line-height: normal;
+
+  font-family: var(--vscode-font-family);
+  outline: none;
+  user-select: none;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  color: var(--vscode-input-foreground);
+  border-radius: calc(var(--vscode-corner-radius) * 1px);
+  height: calc(var(--vscode-input-height) * 1px);
+  min-width: var(--vscode-input-min-width);
+
+  &.focused {
+    background: var(--vscode-input-background);
+    border: calc(var(--vscode-border-width) * 1px) solid var(--vscode-dropdown-border);
+  }
+  &:focus-within {
+    border-color: var(--vscode-focusBorder);
+  }
+  .vscode-input__inner {
+    appearance: none;
+    font-style: inherit;
+    font-variant: inherit;
+    font-weight: inherit;
+    font-stretch: inherit;
+    font-family: inherit;
+    background: transparent;
+    color: inherit;
+    height: calc(100% - (var(--vscode-design-unit) * 1px));
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+    border: none;
+    padding: 0 calc(var(--vscode-design-unit) * 2px + 1px);
+    font-size: var(--vscode-font-size);
+    line-height: var(--vscode-line-height);
+    outline: none;
+  }
+}

@@ -1,16 +1,18 @@
 {
   "manager.command.extension.create": "Extensions: Create New Custom Extension Pack",
   "manager.command.extension.edit": "Edit Extension Pack",
+  "manager.command.extension.view": "Extensions: View Custom Extension Pack",
   "manager.action.extension.create.placeholder": "Type a name for you extension pack.",
   "manager.webview.editor.pre-title": "Extension",
   "manager.webview.extension.description": "🎉 Define your extension pack and enjoy.",
   "manager.webview.extension.status.changed": "This extension has changed, click Update to take effect.",
   "manager.webview.extension.status.ready": "This extension is ready.",
   "manager.webview.extension.status.uninstalled": "uninstalled.",
+  "manager.webview.create": "Create",
   "manager.webview.update": "Update",
   "manager.webview.uninstall": "Uninstall",
   "manager.webview.uninstall.confirm": "Confirm uninstall this Extension",
-  "manager.webview.reject": "Reject Uninstalled",
+  "manager.webview.reject": "Remove obsolete",
   "manager.webview.cancel": "Cancel",
   "manager.webview.tabs.extension-pack": "Extension Pack"
 }

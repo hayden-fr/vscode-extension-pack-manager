@@ -6,14 +6,15 @@
   "engines": {
     "vscode": "^1.63.0"
   },
-  "icon": "images/icon.png",
+  "icon": "icon.png",
   "publisher": "hayden",
   "categories": [
     "Other"
   ],
   "activationEvents": [
     "onCommand:extension-manager.extension.create",
-    "onCommand:extension-manager.extension.edit"
+    "onCommand:extension-manager.extension.edit",
+    "onCommand:extension-manager.extension.view"
   ],
   "main": "./dist/extension",
   "contributes": {
@@ -25,13 +26,14 @@
       {
         "command": "extension-manager.extension.edit",
         "title": "%manager.command.extension.edit%"
+      },
+      {
+        "command": "extension-manager.extension.view",
+        "title": "%manager.command.extension.view%"
       }
     ],
     "menus": {
       "commandPalette": [
-        {
-          "command": "extension-manager.extension.create"
-        },
         {
           "command": "extension-manager.extension.edit",
           "when": "false"
@@ -47,7 +49,6 @@
   },
   "scripts": {
     "build": "webpack --mode development",
-    "start": "yarn run watch",
     "watch": "webpack --watch --mode development",
     "vscode:prepublish": "webpack --mode production",
     "compile": "tsc -p ./",
@@ -73,8 +74,6 @@
     "less": "^4.1.2",
     "less-loader": "^10.2.0",
     "mocha": "^9.1.3",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
     "style-loader": "^3.3.1",
     "ts-loader": "^9.2.6",
     "typescript": "^4.4.4",
@@ -83,7 +82,11 @@
     "webpack-cli": "^4.9.1",
     "webpackbar": "^5.0.2"
   },
-  "dependencies": {},
+  "dependencies": {
+    "classnames": "^2.3.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/hayden-fr/vscode-extension-pack-manager"

@@ -1,0 +1,38 @@
+.vscode-panel {
+  height: 100%;
+  .vscode-panel-navbar {
+    height: 36px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 36px;
+    padding-left: 20px;
+    border-bottom: 1px solid hsla(0, 0%, 53.3%, 0.45);
+    box-sizing: border-box;
+    .vscode-panel-list {
+      display: flex;
+      margin: 0 auto;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      align-items: center;
+      .vscode-panel-item {
+        display: block;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        position: relative;
+        .vscode-panel-item-label {
+          padding: 3px;
+          margin-right: 16px;
+          &.checked,
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+  .vscode-panel-content {
+    height: calc(100% - 35px);
+  }
+}

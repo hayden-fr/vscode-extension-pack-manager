@@ -13,6 +13,7 @@ declare interface ExtensionManifest {
   categories?: string[];
   extensionPack?: string[];
   extensionDependencies?: string[];
+  obsolete?: string;
   [name: string]: any;
 }
 
@@ -40,12 +41,4 @@ declare function acquireVsCodeApi(): VsCodeAPI;
  */
 interface File {
   path: string;
-}
-
-type VsCodeComponent<T extends React.HTMLAttributes<any>> = React.DetailedHTMLProps<T, HTMLElement>;
-
-interface VsCodeBadge extends React.HTMLAttributes<HTMLDivElement> {}
-
-interface VsCodeButton extends React.HTMLAttributes<HTMLButtonElement> {
-  appearance?: "primary" | "secondary" | "icon";
 }

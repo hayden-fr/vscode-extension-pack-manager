@@ -1,0 +1,42 @@
+.vscode-button {
+  --vscode-font-size: 11px;
+  --vscode-button-base-line-height: 22px;
+  --vscode-button-padding-vertical: 0px;
+  --vscode-button-padding-horizontal: 5px;
+  --vscode-disabled-opacity: 0.5;
+
+  outline: none;
+  font-family: var(--vscode-font-family);
+  font-size: var(--vscode-font-size);
+  font-weight: 600;
+  line-height: var(--vscode-button-base-line-height);
+  color: var(--vscode-button-foreground);
+  background: var(--vscode-button-background);
+  border-radius: calc(var(--vscode-corner-radius) * 1px);
+  fill: currentcolor;
+  cursor: pointer;
+  box-sizing: border-box;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--vscode-button-padding-vertical) var(--vscode-button-padding-horizontal);
+  text-decoration: none;
+  border: calc(var(--vscode-border-width) * 1px) solid var(--vscode-button-border);
+  border: none;
+  max-width: 300px;
+  user-select: none;
+
+  &:hover {
+    background: var(--vscode-button-hoverBackground);
+  }
+
+  &:active {
+    background: var(--vscode-button-background);
+  }
+
+  &.disabled {
+    opacity: var(--vscode-disabled-opacity);
+    cursor: not-allowed;
+    background: var(--vscode-button-background);
+  }
+}
