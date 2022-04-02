@@ -6,19 +6,8 @@ const FriendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin");
 const WebpackBar = require("webpackbar");
 
 /**@type {import('webpack').Configuration}*/
-const webpackConfig = {
-  target: "node",
-  entry: { extension: "./src/extension", webview: "./src/webview" },
-  output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "[name].js",
-    libraryTarget: "commonjs2",
-    devtoolModuleFilenameTemplate: "../[resource-path]",
-  },
-  externals: {
-    vscode: "commonjs vscode",
-    acquireVsCodeApi: "Window.acquireVsCodeApi",
-  },
+const commonConfig = {
+  name: "common",
   devtool: "source-map",
   stats: "errors-only",
   resolve: {
@@ -44,4 +33,37 @@ const webpackConfig = {
   ],
 };
 
-module.exports = webpackConfig;
+/**@type {import('webpack').Configuration}*/
+const extension = {
+  name: "extension",
+  target: "node",
+  entry: "./src/extension",
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: "extension.js",
+    libraryTarget: "commonjs2",
+    devtoolModuleFilenameTemplate: "../[resource-path]",
+    clean: true,
+  },
+  externals: {
+    vscode: "commonjs vscode",
+  },
+  ...commonConfig,
+};
+
+/**@type {import('webpack').Configuration}*/
+const webview = {
+  name: "webview",
+  target: "web",
+  entry: "./src/webview",
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: "webview.js",
+  },
+  externals: {
+    acquireVsCodeApi: "Window.acquireVsCodeApi",
+  },
+  ...commonConfig,
+};
+
+module.exports = [webview, extension];
