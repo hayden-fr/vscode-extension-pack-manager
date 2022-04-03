@@ -6,7 +6,7 @@
   "engines": {
     "vscode": "^1.63.0"
   },
-  "icon": "icon.png",
+  "icon": "images/icon.png",
   "publisher": "hayden",
   "categories": [
     "Other"
