@@ -51,8 +51,8 @@ export function updateObsolete(rootPath: string, content: Record<string, boolean
   if (fs.existsSync(extensionsFile)) {
     let extensionsJson: Record<string, any>[] = JSON.parse(fs.readFileSync(extensionsFile, "utf8"));
     extensionsJson = extensionsJson.filter((item) => {
-      const id = item.identifier.id;
-      return !obsoleteJson[id];
+      const key = item.relativeLocation;
+      return !obsoleteJson[key];
     });
     fs.writeFileSync(extensionsFile, JSON.stringify(extensionsJson));
   }
