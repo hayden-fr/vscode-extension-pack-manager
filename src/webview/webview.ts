@@ -2,7 +2,7 @@ import * as vscode from "vscode";
 import { Extensions, FakeExtension } from "../utils/core";
 import { I18n } from "../utils/i18n";
 import { startCase } from "../utils/str";
-import { genCurrentVersion, getUri, updateObsolete } from "../utils/utils";
+import { genCurrentVersion, getUri, updateExtension, updateObsolete } from "../utils/utils";
 
 export class ExtensionWebview {
   /**
@@ -128,6 +128,7 @@ export class ExtensionWebview {
               installedTimestamp: Date.now(),
             };
             const newExtension = FakeExtension.genExtension(this._rootPath, packageJSON);
+            updateExtension(this._rootPath, newExtension);
             vscode.commands.executeCommand("workbench.extensions.action.refreshExtension");
             return newExtension;
           }
